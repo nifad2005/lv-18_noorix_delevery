@@ -13,7 +13,6 @@ function ContactMessagesPage() {
   const { data: session } = useSession();
   useEffect(() => {
      setIsLoading(true);
-      console.log("Session data:", session);
     
       const fetchMessages = async () => {
         console.log("Fetching messages for user:", session?.user?.email);
@@ -67,7 +66,7 @@ function ContactMessagesPage() {
               />
             </svg>
           </div>
-          
+
         ) : messages.length === 0 ? (
           <div className="text-center py-20">
             <h2 className="text-2xl font-bold mb-4">No Messages Found</h2>
@@ -81,7 +80,7 @@ function ContactMessagesPage() {
             <div key={index} className="p-6 bg-white rounded-lg shadow-md">
               <div className="flex gap-2 justify-center w-fit">
                 <Link href={"/dashboard"}>
-                  <Image src={session?.user?.image} className="w-8 h-8 overflow-hidden hover:brightness-90  rounded-full" alt="User Image" width={50} height={50}/>
+                  {session?.user?.image && <Image src={session?.user?.image} className="w-8 h-8 overflow-hidden hover:brightness-90  rounded-full" alt="User Image" width={50} height={50}/>}
                 </Link>
               <h2 className="text-2xl font-bold mb-2">{message?.subject?.toUpperCase()}</h2>
 
