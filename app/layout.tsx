@@ -23,8 +23,16 @@ export default function RootLayout({
         className={` antialiased`}
       >
         <SessionProvider >
-        <Navbar/>
-        {children}
+          
+            
+          <Navbar/>
+            <div className="mt-24">
+
+            {children}
+            </div>
+          
+          
+
         </SessionProvider>
       </body>
     </html>
